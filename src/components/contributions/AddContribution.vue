@@ -117,8 +117,9 @@ export default {
         member: this.contribution.member,
         c_type: this.contribution.c_type,
         amount: this.contribution.amount,
+        date: this.fromDateVal,
       };
-
+      console.log(data)
       ContributionDataService.create(data)
         .then((response) => {
           this.contribution.id = response.data.id;
