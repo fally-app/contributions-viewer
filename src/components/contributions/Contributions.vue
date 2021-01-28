@@ -58,14 +58,14 @@ export default {
   data() {
     return {
       contributions: [],
-      member_id: "",
+      member: "",
       search: "",
       headers: [
         {
           text: "Name",
           align: "start",
           sortable: true,
-          value: "member_id",
+          value: "member",
         },
         { text: "Type", value: "c_type_id", sortable: true },
         { text: "createdAt", value: "createdAt", sortable: true },
@@ -128,7 +128,7 @@ export default {
     getDisplayContribution(contribution) {
       return {
         id: contribution._id,
-        member_id:
+        member:
           contribution.member.fname.length > 30
             ? contribution.member.fname.substr(0, 30) + "..."
             : contribution.member.fname,

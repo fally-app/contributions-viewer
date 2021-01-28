@@ -10,7 +10,7 @@
         required
       ></v-text-field>
       <v-select
-        v-model="currentContribution.member_id"
+        v-model="currentContribution.member"
         :items="members"
         item-value="id"
         item-text="fname"
@@ -123,8 +123,8 @@ export default {
 
     updateContribution() {
       ContributionDataService.update(this.currentContribution._id, {
-        member_id: this.currentContribution.member_id,
-        c_type_id: this.currentContribution.c_type_id,
+        member: this.currentContribution.member,
+        c_type: this.currentContribution.c_type,
         amount: this.currentContribution.amount,
       })
         .then((response) => {
