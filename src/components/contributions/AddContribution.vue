@@ -5,7 +5,7 @@
     <div v-if="!submitted">
       <v-form ref="form" lazy-validation>
         <v-select
-          v-model="contribution.member_id"
+          v-model="contribution.member"
           :items="members"
           item-value="id"
           item-text="fname"
@@ -13,7 +13,7 @@
         ></v-select>
 
         <v-select
-          v-model="contribution.c_type_id"
+          v-model="contribution.c_type"
           :items="types"
           item-value="_id"
           item-text="title"
@@ -82,8 +82,8 @@ export default {
   data() {
     return {
       contribution: {
-        member_id: "",
-        c_type_id: "",
+        member: "",
+        c_type: "",
         amount: "",
       },
       members: [],
@@ -113,10 +113,9 @@ export default {
   },
   methods: {
     saveContribution() {
-      console.log(this.contribution.member_id);
       var data = {
-        member_id: this.contribution.member_id,
-        c_type_id: this.contribution.c_type_id,
+        member: this.contribution.member,
+        c_type: this.contribution.c_type,
         amount: this.contribution.amount,
       };
 
