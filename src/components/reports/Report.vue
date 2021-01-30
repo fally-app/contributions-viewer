@@ -1,12 +1,12 @@
 <template>
   <div>
     <p class="headline">Overall Report</p>
-    <div v-if="reports">
-      <div v-for="name in reports" class="edit-form py-3" v-bind:key="name._id">
-        <p>{{ name.title }}</p>
+    <div v-if="report">
+      <!-- <div v-for="name in reports" class="edit-form py-3" v-bind:key="name._id"> -->
+        <!-- <p>{{ report.amount }}</p> -->
         <v-form ref="form" lazy-validation>
           <v-text-field
-            v-model="name.contributions.length"
+            v-model="report.rows"
             label="Number of Contributions"
             required
           ></v-text-field>
@@ -22,21 +22,20 @@
             label="Amount"
             required
           ></v-text-field>
-          <p>{{ getAmount(name.contributions) }}</p>
+          <p>{{ report.rows }}</p>
 
           <v-divider class="my-5"></v-divider>
         </v-form>
       </div>
-    </div>
-    <div v-else>
+    <!-- </div> -->
+    <!-- <div v-else>
       <p>No report</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import ReportDataService from "../../services/ReportDataService";
-import TypeDataService from "../../services/TypeDataService";
 export default {
   data() {
     return {
@@ -48,6 +47,7 @@ export default {
     getReport() {
       ReportDataService.getAll()
         .then((response) => {
+          console.log(response.data)
           this.report = response.data;
         })
         .catch((e) => {
@@ -71,15 +71,9 @@ export default {
       });
       return amount;
     },
-    async getTypesWithContribution() {
-      let types = await TypeDataService.getAll();
-      this.reports = types.data;
-      console.log(types.data);
-    },
   },
   mounted() {
     this.getReport();
-    this.getTypesWithContribution();
   },
 };
 </script>
