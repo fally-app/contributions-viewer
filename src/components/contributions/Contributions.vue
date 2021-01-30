@@ -59,6 +59,7 @@ export default {
     return {
       contributions: [],
       member: "",
+      c_type:"",
       search: "",
       headers: [
         {
@@ -67,7 +68,7 @@ export default {
           sortable: true,
           value: "member",
         },
-        { text: "Type", value: "c_type_id", sortable: true },
+        { text: "Type", value: "c_type", sortable: true },
         { text: "createdAt", value: "createdAt", sortable: true },
         { text: "Amount", value: "amount", sortable: true },
         { text: "Actions", value: "actions", sortable: false },
@@ -101,7 +102,7 @@ export default {
     },
 
     searchName() {
-      ContributionDataService.findByName(this.member_id)
+      ContributionDataService.findByName(this.member)
         .then((response) => {
           this.members = response.data.map(this.getDisplayContribution);
           console.log(response.data);
@@ -132,10 +133,10 @@ export default {
           contribution.member.fname.length > 30
             ? contribution.member.fname.substr(0, 30) + "..."
             : contribution.member.fname,
-        c_type_id:
-          contribution.types?.title?.length > 30
-            ? contribution.types?.title?.substr(0, 30) + "..."
-            : contribution.types?.title,
+        c_type:
+          contribution.c_type?.title?.length > 30
+            ? contribution.c_type?.title?.substr(0, 30) + "..."
+            : contribution.c_type?.title,
 
         amount:
           contribution.amount.length > 30
