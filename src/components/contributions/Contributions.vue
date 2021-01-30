@@ -69,7 +69,7 @@ export default {
           value: "member",
         },
         { text: "Type", value: "c_type", sortable: true },
-        { text: "createdAt", value: "createdAt", sortable: true },
+        { text: "Date", value: "date", sortable: true },
         { text: "Amount", value: "amount", sortable: true },
         { text: "Actions", value: "actions", sortable: false },
       ],
@@ -79,6 +79,7 @@ export default {
     retrieveContributions() {
       ContributionDataService.getAll()
         .then((response) => {
+          console.log(response.data)
           this.contributions = response.data.map(this.getDisplayContribution);
         })
         .catch((e) => {
@@ -147,6 +148,11 @@ export default {
           contribution.createdAt.length > 10
             ? contribution.createdAt.substr(0, 10)
             : contribution.createdAt,
+
+        date: 
+           contribution.date.length > 10
+            ? contribution.date.substr(0, 10)
+            : contribution.date,
       };
     },
   },
