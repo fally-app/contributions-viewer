@@ -2,8 +2,6 @@
   <div>
     <p class="headline">Overall Report</p>
     <div v-if="report">
-      <!-- <div v-for="name in reports" class="edit-form py-3" v-bind:key="name._id"> -->
-        <!-- <p>{{ report.amount }}</p> -->
         <v-form ref="form" lazy-validation>
           <v-text-field
             v-model="report.rows"
@@ -26,11 +24,14 @@
 
           <v-divider class="my-5"></v-divider>
         </v-form>
+        <div v-for="name in report.conts" class="edit-form py-3" v-bind:key="name.type._id">
+           <p class="headline">{{name.type.title}}</p>
+        <p>{{ name.members }}</p>
+    </div>
       </div>
-    <!-- </div> -->
-    <!-- <div v-else>
+    <div v-else>
       <p>No report</p>
-    </div> -->
+    </div>
   </div>
 </template>
 
