@@ -67,7 +67,6 @@ export default {
       MemberDataService.getAll()
         .then((response) => {
           this.members = response.data.map(this.getDisplayMember);
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
@@ -93,7 +92,6 @@ export default {
       MemberDataService.findByName(this.fname)
         .then((response) => {
           this.members = response.data.map(this.getDisplayMember);
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);

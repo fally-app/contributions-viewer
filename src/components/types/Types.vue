@@ -66,7 +66,6 @@ export default {
       TypeDataService.getAll()
         .then((response) => {
           this.types = response.data.map(this.getDisplayType);
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
@@ -92,7 +91,6 @@ export default {
       TypeDataService.findByName(this.title)
         .then((response) => {
           this.types = response.data.map(this.getDisplayType);
-          console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
