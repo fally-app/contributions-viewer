@@ -22,6 +22,7 @@
           ></v-text-field>
 
         </v-form>
+        <div style="display:flex; flex-wrap: wrap;">
         <div v-for="name in report.conts" class="edit-form py-3" v-bind:key="name.type._id">
            <!-- <p class="headline">{{name.type.title}}</p>
            <v-text-field
@@ -36,8 +37,8 @@
             required
             disabled
           ></v-text-field> -->
-           <v-flex xs12 sm6 offset-sm3>
-      <v-card>
+           <v-flex>
+      <v-card style="width:400px;margin:20px;">
         <v-img
           src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
           aspect-ratio="2.75"
@@ -58,6 +59,7 @@
       </v-card>
     </v-flex>
     </div>
+      </div>
       </div>
     <div v-else>
       <p>No report</p>
