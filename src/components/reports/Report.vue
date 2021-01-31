@@ -8,7 +8,7 @@
            <v-flex>
       <v-card style="width:400px;margin:20px;">
         <v-img
-          src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+          src="/img/slide-02.jpg"
           aspect-ratio="2.75"
         ></v-img>
 
