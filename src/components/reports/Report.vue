@@ -23,7 +23,7 @@
 
         </v-form>
         <div v-for="name in report.conts" class="edit-form py-3" v-bind:key="name.type._id">
-           <p class="headline">{{name.type.title}}</p>
+           <!-- <p class="headline">{{name.type.title}}</p>
            <v-text-field
             v-model="name.members"
             label="Contributors"
@@ -35,7 +35,7 @@
             label="Amount Contributed"
             required
             disabled
-          ></v-text-field>
+          ></v-text-field> -->
            <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-img
@@ -46,14 +46,14 @@
         <v-card-title primary-title>
           <div>
             <h3 class="headline mb-0">{{name.type.title}}</h3>
-            <div> {{ name.members }} </div>
             <p>Contributors: {{name.members}}</p>
+            <p>Amount: {{name.sum}}</p>
           </div>
         </v-card-title>
 
         <v-card-actions>
-          <v-btn flat color="orange">Copy</v-btn>
-          <v-btn flat color="orange">Star</v-btn>
+          <v-btn flat color="grey">Copy</v-btn>
+          <v-btn flat color="grey">Star</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
