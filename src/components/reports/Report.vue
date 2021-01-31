@@ -1,42 +1,10 @@
 <template>
   <div>
-    <p class="headline">Overall Report</p>
+    <p class="headline">Type Report</p>
     <div v-if="report">
-        <v-form ref="form" lazy-validation>
-          <v-text-field
-            v-model="report.rows"
-            label="Number of Contributions"
-            required
-          ></v-text-field>
-
-          <v-text-field
-            v-model="report.contributors"
-            label="Contributors"
-            required
-          ></v-text-field>
-
-          <v-text-field
-            v-model="report.amount"
-            label="Amount"
-            required
-          ></v-text-field>
-
-        </v-form>
+      
         <div style="display:flex; flex-wrap: wrap;">
         <div v-for="name in report.conts" class="edit-form py-3" v-bind:key="name.type._id">
-           <!-- <p class="headline">{{name.type.title}}</p>
-           <v-text-field
-            v-model="name.members"
-            label="Contributors"
-            required
-            disabled
-          ></v-text-field>
-           <v-text-field
-            v-model="name.sum"
-            label="Amount Contributed"
-            required
-            disabled
-          ></v-text-field> -->
            <v-flex>
       <v-card style="width:400px;margin:20px;">
         <v-img
@@ -60,6 +28,27 @@
     </v-flex>
     </div>
       </div>
+      <p class="headline">Overall Report</p>
+      <v-form ref="form" lazy-validation>
+          <v-text-field
+            v-model="report.rows"
+            label="Number of Contributions"
+            required
+          ></v-text-field>
+
+          <v-text-field
+            v-model="report.contributors"
+            label="Contributors"
+            required
+          ></v-text-field>
+
+          <v-text-field
+            v-model="report.amount"
+            label="Amount"
+            required
+          ></v-text-field>
+
+        </v-form>
       </div>
     <div v-else>
       <p>No report</p>
